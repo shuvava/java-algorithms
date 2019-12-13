@@ -1,13 +1,13 @@
-package org.shuvava.helloworld;
-
-import static org.junit.jupiter.api.Assertions.*;
+package org.shuvava.syntax;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 
 
-public class HelloWorldTest {
+public class AnonymousSubclassDemoTest {
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
   private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
   private final PrintStream originalOut = System.out;
@@ -25,10 +25,17 @@ public class HelloWorldTest {
     System.setErr(originalErr);
   }
 
-  @DisplayName("Test HelloWorld.main()")
   @Test
-  public void Main(){
-    HelloWorld.main(null);
+  public void InlineArrayInitialization() {
+    var instance = new AnonymousSubclassDemo();
+    var result = instance.InlineArrayInitialization();
+    assertFalse(result.isEmpty());
+  }
+
+  @Test
+  public void InitAnonymousSubclass() {
+    var instance = new AnonymousSubclassDemo();
+    var result = instance.InitAnonymousSubclass();
     String out = outContent.toString();
 
     assertFalse(out.isBlank());

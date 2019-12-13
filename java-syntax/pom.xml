@@ -9,9 +9,9 @@
     <artifactId>parent</artifactId>
     <version>0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hello-world</artifactId>
+  <artifactId>java-syntax</artifactId>
   <packaging>jar</packaging>
 
-  <name>Hello World Application</name>
+  <name>JavaSyntax</name>
 
 </project>

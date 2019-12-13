@@ -12,9 +12,12 @@
 
   <properties>
     <java.version>13</java.version>
+    <junit-jupiter.version>5.5.2</junit-jupiter.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
     <module>hello-world</module>
+    <module>java-syntax</module>
   </modules>
 
   <build>
@@ -29,15 +32,22 @@
             <target>13</target>
           </configuration>
         </plugin>
+
+        <!-- Need at least 2.22.0 to support JUnit 5 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M3</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.5.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
