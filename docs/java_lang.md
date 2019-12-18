@@ -53,6 +53,26 @@ int EAST = 3;
 }
 ```
 
+## Using for auto closing resources
+
+```java
+  try (in; out) { // Effectively final variables
+      while (in.hasNext())
+          out.println(in.next().toLowerCase());
+  }
+```
+
+## Null check
+
+The Objects class has a method for convenient null checks of parameters.
+
+```java
+public void process(String direction) {
+  this.direction = Objects.requireNonNull(direction);
+  ...
+}
+```
+
 ## Enum
 
 if you like, add constructors, methods, and fields to an enumerated type.
@@ -88,7 +108,26 @@ public enum Modifier {
 }
 ```
 
+## Methods
+
+### Arbitrary Number of Arguments
+
+You can use a construct called [varargs](https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html#varargs) to pass an arbitrary number of values to a method. You use varargs when you don't know how many of a particular type of argument will be passed to the method. It's a shortcut to creating an array manually (the previous method could have used varargs rather than an array).
+
+To use varargs, you follow the type of the last parameter by an ellipsis (three dots, ...), then a space, and the parameter name. The method can then be called with any number of that parameter, including none.
+
+```java
+public BulkRequest add(DocWriteRequest<?>... requests) {
+  for (DocWriteRequest<?> request : requests) {
+      add(request);
+  }
+  return this;
+}
+```
+
 ## Class
+
+### The final Keyword
 
 When you declare a method as `final`, no subclass can override it.
 
@@ -99,6 +138,15 @@ public final class Executive extends Manager {
   ...
 }
 ```
+
+### Java Inheritance (Subclass and Superclass)
+
+In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+
+* subclass (child) - the class that inherits from another class
+* superclass (parent) - the class being inherited from
+
+To inherit from a class, use the `extends` keyword.
 
 ### Method overriding
 
@@ -289,3 +337,124 @@ public static IntSequence randomInts(int low, int high) {
 
 The expression
 `new Interface() { methods }`
+
+## Proxy class
+
+The Proxy class can create, at runtime, new classes that implement a given interface or set of interfaces. Such proxies are only necessary when you don’t yet know at compile time which interfaces you need to implement.
+
+```java
+return Proxy.newProxyInstance(
+                null, value.getClass().getInterfaces(), 
+                (Object proxy, Method m, Object[] margs) -> {
+                    System.out.println(value + "." + m.getName() + Arrays.toString(margs));
+                    return m.invoke(value, margs);
+                });
+```
+A proxy class has all methods required by the specified interfaces, and all methods defined in the Object class (toString, equals, and so on). However, since you cannot define new code for these methods at runtime, you supply an invocation handler, an object of a class that implements the InvocationHandler interface. That interface has a single method:
+`Object invoke(Object proxy, Method method, Object[] args)`
+
+## Generics
+
+### Generic methods
+
+When you declare a generic method, the type parameter is placed after the modifiers (such as public and static) and before the return type
+
+```java
+public class Arrays {
+  public static <T> void swap(T[] array, int i, int j) {
+    T temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+```
+
+#### Type bound
+
+Sometimes, the type parameters of a generic class or method need to fulfill certain requirements. You can specify a type bound to require that the type extends certain classes or implements certain interfaces
+
+Suppose, for example, you have an ArrayList of objects of a class that implements the AutoCloseable interface, and you want to close them all:
+
+```java
+public static <T extends AutoCloseable> void closeAll(ArrayList<T> elems) throws Exception {
+  for (T elem : elems) elem.close();
+}
+```
+The type bound extends AutoCloseable ensures that the element type is a subtype of AutoCloseable. Therefore, the call elem.close() is valid.
+
+#### Subtype wildcard
+
+The wildcard type ? extends `Employee` indicates some unknown subtype of `Employee`. You can call this method with an `ArrayList<Employee>` or an array list of a subtype, such as `ArrayList<Manager>`.
+
+```java
+public static void printNames(ArrayList<? extends Employee> staff) {
+  for (int i = 0; i < staff.size(); i++) {
+    Employee e = staff.get(i);
+    System.out.println(e.getName());
+  }
+}
+```
+
+Whatever type ? denotes, it is a subtype of Employee, and the result of staff.get(i) can be assigned to the Employee variable e. 
+
+#### Supertype wildcard
+
+The wildcard type `? extends Employee` denotes an arbitrary subtype of `Employee`. The converse is the wildcard type `? super Employee` which denotes a supertype of Employee.
+
+Now suppose you want to use a `Predicate<Object>` instead, for example
+
+```java
+Predicate<Object> evenLength = e -> e.toString().length() % 2 == 0; printAll(employees, evenLength);
+```
+
+This should not be a problem. After all, *every Employee is an Object with a toString method*. However, like all generic types, the Predicate interface is invariant, and there is no relationship between `Predicate<Employee>` and `Predicate<Object>`.
+The remedy is to allow any `Predicate<? super Employee>`:
+
+```java
+public interface Predicate<T> {
+  boolean test(T arg);
+}
+public static void printAll(Employee[] staff, Predicate<? super Employee> filter) {
+  for (Employee e : staff)
+    if (filter.test(e))
+      System.out.println(e.getName());
+}
+```
+
+This is a generic method that works for arrays of any type. The type param- eter is the type of the array that is being passed. However, it suffers from the limitation that you saw in the preceding section. The type parameter of Predicate must exactly match the type parameter of the method.
+
+This method takes a filter for elements of type T or any supertype of T.
+
+```java
+public static <T> void printAll(T[] elements, Predicate<? super T> filter)
+```
+
+example of complex declaration
+
+`public static <T extends Comparable<? super T>> void sort(List<T> list)`
+
+Comparable interface is again generic:
+
+```java
+public interface Comparable<T> {
+  int compareTo(T other);
+}
+```
+
+Its type parameter specifies the argument type of the compareTo method. So, it would seem that Collections.sort could be declared as 
+
+`public static <T extends Comparable<T>> void sort(List<T> list)`
+
+But that is too restrictive. Suppose that the Employee class implements `Comparable<Employee>`, comparing employees by salary. And suppose that the Manager class extends Employee. Note that it implements `Comparable<Employee>`, and not `Comparable<Manager>`. Therefore, Manager is not a subtype of `Comparable<Manager>`, but it is a subtype of `Comparable<? super Manager>`.
+
+#### Unbounded wildcard
+
+It is possible to have unbounded wildcards for situations where you only do very generic operations. For example, here is a method to check whether an ArrayList has any null elements:
+
+```java
+public static boolean hasNulls(ArrayList<?> elements) {     for (Object e : elements) {
+    if (e == null) return true;
+  }
+  return false;
+}
+```

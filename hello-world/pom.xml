@@ -12,6 +12,29 @@
   <artifactId>hello-world</artifactId>
   <packaging>jar</packaging>
 
+  <properties>
+    <slf4jVersion>1.7.29</slf4jVersion>
+  </properties>
+
   <name>Hello World Application</name>
 
+  <dependencies>
+<!--    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4jVersion}</version>
+    </dependency>-->
+    <!--Binding for log4j version 1.2.x You also need to  place log4j.jar on your class path. -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4jVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 </project>
