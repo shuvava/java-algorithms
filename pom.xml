@@ -18,6 +18,8 @@
   <modules>
     <module>hello-world</module>
     <module>java-syntax</module>
+    <module>auto-service-loader</module>
+    <module>spring-dep-inj</module>
   </modules>
 
   <build>
