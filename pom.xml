@@ -21,6 +21,7 @@
     <module>auto-service-loader</module>
     <module>spring-dep-inj</module>
     <module>httpserver</module>
+    <module>io-hello-wolrd</module>
   </modules>
 
   <build>
