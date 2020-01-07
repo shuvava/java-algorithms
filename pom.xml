@@ -16,12 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-    <module>hello-world</module>
-    <module>java-syntax</module>
-    <module>auto-service-loader</module>
-    <module>spring-dep-inj</module>
-    <module>httpserver</module>
-    <module>io-hello-wolrd</module>
+    <module>search</module>
   </modules>
 
   <build>
