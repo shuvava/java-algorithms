@@ -17,6 +17,7 @@
   </properties>
   <modules>
     <module>search</module>
+    <module>sort</module>
   </modules>
 
   <build>

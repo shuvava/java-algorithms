@@ -41,6 +41,5 @@ public class BinarySearchRecursiveTest {
     Integer[] arr = {10, 12, 15};
     int inx = search.find(arr, 12);
     assertEquals(inx, 1);
-
   }
 }

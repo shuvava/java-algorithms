@@ -13,7 +13,7 @@ public class BinarySearchRecursive implements ISearchAlgorithm {
    * @param <T> is any comparable type
    * @return index of found element in array
    */
-  public static <T extends Comparable<T>> int searchRecursive(T[] array, T value, int lo, int hi) {
+  public static <T extends Comparable<T>> int searchRecursive(T[] array, T value, int lo, int hi) throws NoSuchElementException {
     if (lo > hi) {
       throw new NoSuchElementException();
     }
@@ -28,7 +28,7 @@ public class BinarySearchRecursive implements ISearchAlgorithm {
   }
 
   @Override
-  public <T extends Comparable<T>> int find(T[] array, T value) {
+  public <T extends Comparable<T>> int find(T[] array, T value) throws NoSuchElementException {
     return searchRecursive(array, value,0, array.length);
   }
 }

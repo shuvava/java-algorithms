@@ -1,5 +1,7 @@
 package com.github.shuvava.search;
 
+import java.util.NoSuchElementException;
+
 public interface ISearchAlgorithm {
 
   /**
@@ -9,5 +11,5 @@ public interface ISearchAlgorithm {
    * @param <T> is any comparable type
    * @return index of the element
    */
-  <T extends Comparable<T>> int find(T[] array, T value);
+  <T extends Comparable<T>> int find(T[] array, T value) throws NoSuchElementException;
 }

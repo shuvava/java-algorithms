@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 public class BinarySearchIterative implements ISearchAlgorithm {
 
   @Override
-  public <T extends Comparable<T>> int find(T[] array, T value) {
+  public <T extends Comparable<T>> int find(T[] array, T value) throws NoSuchElementException {
     int lo = 0;
     int hi = array.length-1;
     while (lo <= hi) {
