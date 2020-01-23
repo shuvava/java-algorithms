@@ -39,7 +39,7 @@ public class QuickSort implements ISortAlgorithm {
     int inx = low;
     while (inx < high) {
       int comp = array[inx].compareTo(array[high]);
-      if (comp<=0) {
+      if (comp<0) {
         swap(array, pivot, inx);
         pivot++;
       }

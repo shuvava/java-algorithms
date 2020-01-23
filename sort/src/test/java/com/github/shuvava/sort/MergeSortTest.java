@@ -9,9 +9,9 @@ public class MergeSortTest extends BaseSortTest {
   @Test
   public void Sort() {
     ISortAlgorithm instance = getInstance();
-    // The element that should be found
 
     instance.sort(array);
+
     assertArrayEquals(arrayExpected, array);
   }
 
@@ -21,7 +21,9 @@ public class MergeSortTest extends BaseSortTest {
     Integer[] arr = {2, 1, 3, 1, 2};
     Integer[] arrExpected = Arrays.copyOf(arr, arr.length);
     Arrays.sort(arrExpected);
+
     instance.sort(arr);
+
     assertArrayEquals(arrExpected, arr);
   }
 
