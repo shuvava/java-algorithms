@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-public class BubbleSortTest extends BaseSortTest {
+public class QuickSortTest extends BaseSortTest {
 
   @Test
   public void Sort() {
@@ -19,7 +19,7 @@ public class BubbleSortTest extends BaseSortTest {
   @Test
   public void SimpleTest() {
     ISortAlgorithm instance = getInstance();
-    Integer[] arr = {6, 5, 1, 4};
+    Integer[] arr = {6, 5, 3, 2, 8, 10, 9};
     Integer[] arrExpected = Arrays.copyOf(arr, arr.length);
     Arrays.sort(arrExpected);
     instance.sort(arr);
@@ -28,6 +28,6 @@ public class BubbleSortTest extends BaseSortTest {
 
   @Override
   protected ISortAlgorithm getInstance() {
-    return new BubbleSort();
+    return new QuickSort();
   }
 }

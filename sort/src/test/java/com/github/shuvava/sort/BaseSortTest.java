@@ -7,6 +7,8 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class BaseSortTest {
+
+  protected abstract ISortAlgorithm getInstance();
   private Random r = ThreadLocalRandom.current();
   protected Integer[] array;
   protected Integer[] arrayExpected;

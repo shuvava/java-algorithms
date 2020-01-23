@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class MergeSortTest extends BaseSortTest {
   @Test
   public void Sort() {
-    ISortAlgorithm instance = new MergeSort();
+    ISortAlgorithm instance = getInstance();
     // The element that should be found
 
     instance.sort(array);
@@ -17,11 +17,16 @@ public class MergeSortTest extends BaseSortTest {
 
   @Test
   public void SimpleTest() {
-    ISortAlgorithm instance = new MergeSort();
+    ISortAlgorithm instance = getInstance();
     Integer[] arr = {2, 1, 3, 1, 2};
     Integer[] arrExpected = Arrays.copyOf(arr, arr.length);
     Arrays.sort(arrExpected);
     instance.sort(arr);
     assertArrayEquals(arrExpected, arr);
+  }
+
+  @Override
+  protected ISortAlgorithm getInstance() {
+    return new MergeSort();
   }
 }
