@@ -5,23 +5,18 @@ import java.util.List;
 
 public class BstNodes {
   /** is v < w ? */
-  static boolean less(Comparable v, Comparable w) {
+  static <T extends Comparable<T>> boolean less(T v, T w) {
     return v.compareTo(w) < 0;
   }
 
   /** is v >= w ? */
-  static boolean moreOrEqual(Comparable v, Comparable w) {
+  static <T extends Comparable<T>> boolean moreOrEqual(T v, T w) {
     return v.compareTo(w) >= 0;
   }
 
   /** is v <= w ? */
-  static boolean lessOrEqual(Comparable v, Comparable w) {
+  static <T extends Comparable<T>> boolean lessOrEqual(T v, T w) {
     return v.compareTo(w) <= 0;
-  }
-
-  /** is v == w ? */
-  static boolean equal(Comparable v, Comparable w) {
-    return v.compareTo(w) == 0;
   }
 
   /**
@@ -119,10 +114,7 @@ public class BstNodes {
     if (!node.isValid()) {
       return false;
     }
-    if (isBstTreeValid(node.getLeft()) && isBstTreeValid(node.getRight())) {
-      return true;
-    }
-    return false;
+    return isBstTreeValid(node.getLeft()) && isBstTreeValid(node.getRight());
   }
 
   private static <T extends Comparable<T>> void processToList(BstNode<T> node, List<T> arr) {
@@ -148,7 +140,7 @@ public class BstNodes {
       if (node.getLeft() != null) {
         count += node.getLeft().getRank();
       }
-      return countSmaller(node, value, count);
+      return countSmaller(node.getRight(), value, count);
     }
     return countSmaller(node.getLeft(), value, count);
   }
