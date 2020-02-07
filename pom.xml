@@ -18,6 +18,7 @@
   <modules>
     <module>search</module>
     <module>sort</module>
+    <module>problems</module>
   </modules>
 
   <build>

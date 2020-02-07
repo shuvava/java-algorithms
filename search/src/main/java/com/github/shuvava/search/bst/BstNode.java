@@ -11,8 +11,11 @@ import lombok.Setter;
  *
  * <p>Each node x in the binary tree has a key key(x). Nodes other than the root have a parent p(x).
  * Nodes may have a left child lef t(x) and/or a right child right(x). These are pointers unlike in
- * a heap. The invariant is: for any node x, for all nodes y in the left subtree of x, key(y) ≤
- * key(x). For all nodes y in the right subtree of x key(y) ≥ key(x).
+ * a heap.
+ * The invariant is:
+ * for any node x,
+ *    For all nodes y in the left subtree of x, key(y) < key(x).
+ *    For all nodes y in the right subtree of x key(y) >= key(x).
  */
 @EqualsAndHashCode
 public class BstNode<T extends Comparable<T>> {

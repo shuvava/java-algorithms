@@ -1,6 +1,5 @@
 package com.github.shuvava.search.bst;
 
-import java.util.List;
 import lombok.Getter;
 
 public class BinarySearchTree<T extends Comparable<T>> {
@@ -34,5 +33,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
       return;
     }
     BstNodeUpdates.insert(this.root, node);
+  }
+
+  public void remove(BstNode<T> node) {
+    if (this.root == null || node == null) return;
+    if (this.root == node) throw new UnsupportedOperationException("removing root not supported yet.");
+    BstNodeUpdates.delete(node);
+  }
+  public void remove(T value) {
+    BstNode<T> node = BstNodes.find(this.root, value);
+    remove(node);
+  }
+
+  public boolean isValid() {
+    return BstNodes.isBstTreeValid(this.root);
   }
 }
