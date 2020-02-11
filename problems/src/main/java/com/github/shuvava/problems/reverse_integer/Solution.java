@@ -1,5 +1,7 @@
 package com.github.shuvava.problems.reverse_integer;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 public class Solution {
 
   public String reverseString(String str) {
@@ -16,6 +18,12 @@ public class Solution {
       bytes[i] = x;
       bytes[bytes.length - i - 1] = y;
     }
+    return new String(bytes);
+  }
+
+  public String reverseString2(String str) {
+    byte[] bytes = str.getBytes();
+    ArrayUtils.reverse(bytes);
     return new String(bytes);
   }
 
