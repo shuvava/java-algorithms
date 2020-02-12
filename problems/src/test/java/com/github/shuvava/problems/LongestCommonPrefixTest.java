@@ -15,6 +15,7 @@ public class LongestCommonPrefixTest {
   @ParameterizedTest(name = "run #{index} with [{arguments}]")
   @CsvSource({"flower, flow, flight, fl"})
   public void longestCommonPrefix(ArgumentsAccessor argumentsAccessor) {
+    //arrange
     List<String> strs = new ArrayList<>();
     int size = argumentsAccessor.size() - 1;
     String expected = argumentsAccessor.getString(size);
@@ -24,7 +25,9 @@ public class LongestCommonPrefixTest {
     LongestCommonPrefix instance = new LongestCommonPrefix();
     String[] params = new String[strs.size()];
     strs.toArray(params);
+    //act
     String actual = instance.longestCommonPrefix(params);
+    //assert
     assertEquals(expected, actual);
   }
 
