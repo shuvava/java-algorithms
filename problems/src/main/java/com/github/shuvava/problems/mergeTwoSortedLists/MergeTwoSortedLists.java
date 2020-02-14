@@ -11,7 +11,7 @@ public class MergeTwoSortedLists {
     }
     ListNode root = null;
     ListNode current = null;
-    ListNode smallest = null;
+    ListNode smallest;
     while (l1 != null && l2 != null) {
       smallest = l1;
       if (l2.val < smallest.val) {
@@ -22,11 +22,10 @@ public class MergeTwoSortedLists {
       }
       if (root == null) {
         root = smallest;
-        current = smallest;
       } else {
         current.next = smallest;
-        current = smallest;
       }
+      current = smallest;
     }
     while (l1 != null) {
       current.next = l1;
