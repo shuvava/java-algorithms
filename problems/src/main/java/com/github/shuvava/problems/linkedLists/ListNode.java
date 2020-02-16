@@ -1,4 +1,4 @@
-package com.github.shuvava.problems.mergeTwoSortedLists;
+package com.github.shuvava.problems.linkedLists;
 
 public class ListNode {
 
