@@ -1,4 +1,4 @@
-package com.github.shuvava.problems;
+package com.github.shuvava.problems.strings;
 
 import java.util.Arrays;
 import java.util.Comparator;

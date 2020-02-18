@@ -1,4 +1,4 @@
-package com.github.shuvava.problems;
+package com.github.shuvava.problems.strings;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
