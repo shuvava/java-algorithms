@@ -15,7 +15,7 @@ public class ThreeSumTest {
 
   @DisplayName("3 sum")
   @ParameterizedTest(name = "run #{index} with [{arguments}]")
-  @CsvSource({"'-1, 0, 1, 2, -1, -4', '-1,-1,2', '-1,0,1'"})
+  @CsvSource({"'-1,0,1,2,-1,-4', '-1,-1,2', '-1,0,1'"})
   public void threeSum(ArgumentsAccessor argumentsAccessor) {
     //arrange
     int[] testCase =
@@ -25,18 +25,20 @@ public class ThreeSumTest {
                     .getString(0)
                     .split(",")
             )
-            .map(x -> x.trim())
-            .mapToInt(x -> Integer.parseInt(x))
+            .map(String::trim)
+            .mapToInt(Integer::parseInt)
             .toArray();
     List<List<Integer>> expected = new ArrayList<>();
     int size = argumentsAccessor.size();
     for (int i = 1; i < size; i++) {
-      List<Integer> item = Stream.of(
-          argumentsAccessor
-              .getString(i)
-              .split(",")
-      )
-          .mapToInt(x -> Integer.parseInt(x))
+      List<Integer> item = Stream
+          .of(
+              argumentsAccessor
+                  .getString(i)
+                  .split(",")
+          )
+          .map(String::trim)
+          .mapToInt(Integer::parseInt)
           .boxed()
           .collect(Collectors.toList());
       expected.add(item);
