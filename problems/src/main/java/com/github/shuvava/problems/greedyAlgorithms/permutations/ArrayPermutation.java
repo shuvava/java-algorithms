@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * links: * https://www.baeldung.com/java-array-permutations * https://en.wikipedia.org/wiki/Heap%27s_algorithm
+ */
 public class ArrayPermutation {
 
   private static void swap(int[] input, int a, int b) {
