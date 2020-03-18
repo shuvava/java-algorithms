@@ -1,4 +1,4 @@
-package com.github.shuvava.problems.maxumum_depth_og_binary_tree;
+package com.github.shuvava.problems.maxumum_depth_of_binary_tree;
 
 import java.util.Map;
 import java.util.Map.Entry;
