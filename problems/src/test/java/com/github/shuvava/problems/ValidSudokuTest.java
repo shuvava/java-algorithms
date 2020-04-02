@@ -1,31 +1,15 @@
 package com.github.shuvava.problems;
 
+import static com.github.shuvava.problems.TestHelper.parseStringOfChar;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.commons.lang3.ArrayUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class ValidSudokuTest {
 
-  private static char[][] parseString(String input) {
-    if (input == null) {
-      return new char[0][0];
-    }
-    List<char[]> data = new ArrayList<>();
-    for (String line : input.split(";")) {
-      List<Character> arr = new ArrayList<>();
-      for (String chr : line.split(",")) {
-        arr.add(chr.trim().charAt(0));
-      }
-      data.add(ArrayUtils.toPrimitive(arr.toArray(Character[]::new)));
-    }
 
-    return data.toArray(char[][]::new);
-  }
 
   @DisplayName("Validate sudoku")
   @ParameterizedTest(name = "run #{index} should return [{1}]")
@@ -54,7 +38,7 @@ public class ValidSudokuTest {
       delimiter = '|')
   public void isValidSudoku(final String input, final boolean expected) {
     //arrange
-    char[][] data = parseString(input);
+    char[][] data = parseStringOfChar(input);
     var instance = new ValidSudoku();
     //act
     boolean actual = instance.isValidSudoku(data);

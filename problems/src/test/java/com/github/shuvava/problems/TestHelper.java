@@ -54,4 +54,20 @@ public class TestHelper {
         })
     );
   }
+
+  public static char[][] parseStringOfChar(String input) {
+    if (input == null) {
+      return new char[0][0];
+    }
+    List<char[]> data = new ArrayList<>();
+    for (String line : input.split(";")) {
+      List<Character> arr = new ArrayList<>();
+      for (String chr : line.split(",")) {
+        arr.add(chr.trim().charAt(0));
+      }
+      data.add(ArrayUtils.toPrimitive(arr.toArray(Character[]::new)));
+    }
+
+    return data.toArray(char[][]::new);
+  }
 }
