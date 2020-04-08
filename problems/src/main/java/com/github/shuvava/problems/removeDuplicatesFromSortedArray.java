@@ -1,3 +1,5 @@
+package com.github.shuvava.problems;
+
 public class removeDuplicatesFromSortedArray {
 
   public int removeDuplicates(int[] nums) {

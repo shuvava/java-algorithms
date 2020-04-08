@@ -23,6 +23,24 @@ public class TestHelper {
         .toArray();
   }
 
+  public static List<Integer> parseToList(String input) {
+    if (input == null) {
+      return new ArrayList<>();
+    }
+    return Stream
+        .of(
+            input.split(",")
+        )
+        .map(String::trim)
+        .map(s -> {
+          if (s.toLowerCase().startsWith("null")) {
+            return null;
+          }
+          return Integer.parseInt(s);
+        })
+        .collect(Collectors.toList());
+  }
+
   public static List<List<Integer>> parseToListOfList(String input) {
     if (input == null) {
       return new ArrayList<>();
