@@ -9,21 +9,21 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class CheckArrayFormationThroughConcatenationTest extends BaseTest {
 
-    @DisplayName("Check array formation through concatenation")
-    @ParameterizedTest(name = "test #{index}")
-    @CsvSource(value = {
-        "85 | 85 | true",
-        "15, 88 | 88; 15 | true",
-        "49, 18, 16 | 16, 18, 49 | false",
-        "91, 4, 64, 78 | 78; 4, 64; 91 | true",
-        "1, 3, 5, 7 | 16, 18, 49 | false",
-    }, delimiter = '|')
-    public void CheckArray(final String arrStr, final String piecesStr, final boolean expected) {
-        ArrayList<Integer> arr = parseArray(arrStr);
-        ArrayList<ArrayList<Integer>> pieces = parseToArrayOfArray(piecesStr);
+  @DisplayName("Check array formation through concatenation")
+  @ParameterizedTest(name = "test #{index}")
+  @CsvSource(value = {
+    "85 | 85 | true",
+    "15, 88 | 88; 15 | true",
+    "49, 18, 16 | 16, 18, 49 | false",
+    "91, 4, 64, 78 | 78; 4, 64; 91 | true",
+    "1, 3, 5, 7 | 16, 18, 49 | false",
+  }, delimiter = '|')
+  public void CheckArray(final String arrStr, final String piecesStr, final boolean expected) {
+    ArrayList<Integer> arr = parseArray(arrStr);
+    ArrayList<ArrayList<Integer>> pieces = parseToArrayOfArray(piecesStr);
 
-        boolean actual = CheckArrayFormationThroughConcatenation.Test(arr, pieces);
+    boolean actual = CheckArrayFormationThroughConcatenation.Test(arr, pieces);
 
-        assertEquals(expected, actual);
-    }
+    assertEquals(expected, actual);
+  }
 }
