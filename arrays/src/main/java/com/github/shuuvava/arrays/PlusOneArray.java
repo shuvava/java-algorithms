@@ -17,6 +17,7 @@ public class PlusOneArray {
 
   public static ArrayList<Integer> plusOne(ArrayList<Integer> digits) {
     boolean shift = false;
+
     for (int i = digits.size() - 1; i >= 0; i--) {
       var val = digits.get(i);
       if (val == 9) {
@@ -27,6 +28,7 @@ public class PlusOneArray {
         return digits;
       }
     }
+
     if (shift) {
       var result = new ArrayList<Integer>();
       result.add(1);
