@@ -5,11 +5,10 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.shuvava.arrays</groupId>
-  <artifactId>arrays</artifactId>
+  <groupId>com.github.shuvava.testcommon</groupId>
+  <artifactId>testcommon</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  <name>Arrays</name>
 
   <parent>
     <groupId>org.shuvava.algorithms</groupId>
@@ -17,12 +16,7 @@
     <version>0.1-SNAPSHOT</version>
   </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.github.shuvava.testcommon</groupId>
-      <artifactId>testcommon</artifactId>
-      <version>1.0</version>
-    </dependency>
-  </dependencies>
+
+  <name>TestCommon</name>
 
 </project>

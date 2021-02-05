@@ -2,6 +2,7 @@ package com.github.shuuvava.arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.github.shuvava.testcommon.BaseTest;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
