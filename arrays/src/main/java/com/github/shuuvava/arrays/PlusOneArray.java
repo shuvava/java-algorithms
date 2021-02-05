@@ -1,6 +1,7 @@
 package com.github.shuuvava.arrays;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Given a non-empty array of decimal digits representing a non-negative integer, increment one to
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  */
 public class PlusOneArray {
 
-  public static ArrayList<Integer> plusOne(ArrayList<Integer> digits) {
+  public static List<Integer> plusOne(List<Integer> digits) {
     boolean shift = false;
 
     for (int i = digits.size() - 1; i >= 0; i--) {

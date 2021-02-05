@@ -3,6 +3,7 @@ package com.github.shuuvava.arrays;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Given an array, rotate the array to the right by k steps, where k is non-negative.
@@ -28,7 +29,7 @@ public class RotateArray {
      * @param <T> array type
      * @return rotated array
      */
-    public static <T> ArrayList<T> rotateArrayOnSpace(ArrayList<T> arr, int k) {
+    public static <T> List<T> rotateArrayOnSpace(List<T> arr, int k) {
         var result = new ArrayList<T>(Collections.nCopies(arr.size(), null));
         var rotations = k % arr.size();
         for (int i = 0; i < arr.size(); i++) {
@@ -49,7 +50,7 @@ public class RotateArray {
      * @param k   number of index to rotate
      * @param <T> array type
      */
-    public static <T> void rotateArrayO1Space(ArrayList<T> arr, int k) {
+    public static <T> void rotateArrayO1Space(List<T> arr, int k) {
         var len = arr.size();
         var rotations = k % len;
         var gcd = BigInteger

@@ -3,7 +3,7 @@ package com.github.shuuvava.arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.github.shuvava.testcommon.BaseTest;
-import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -20,8 +20,8 @@ public class CheckArrayFormationThroughConcatenationTest extends BaseTest {
     "1, 3, 5, 7 | 16, 18, 49 | false",
   }, delimiter = '|')
   public void CheckArray(final String arrStr, final String piecesStr, final boolean expected) {
-    ArrayList<Integer> arr = parseArray(arrStr);
-    ArrayList<ArrayList<Integer>> pieces = parseToArrayOfArray(piecesStr);
+    List<Integer> arr = parseArray(arrStr);
+    List<List<Integer>> pieces = parseToArrayOfArray(piecesStr);
 
     boolean actual = CheckArrayFormationThroughConcatenation.Test(arr, pieces);
 

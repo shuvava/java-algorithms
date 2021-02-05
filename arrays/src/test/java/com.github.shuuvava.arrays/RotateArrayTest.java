@@ -3,7 +3,7 @@ package com.github.shuuvava.arrays;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import com.github.shuvava.testcommon.BaseTest;
-import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -19,8 +19,8 @@ public class RotateArrayTest extends BaseTest {
         "-1, -100, 3, 99 | 2 | 3, 99, -1, -100",
     }, delimiter = '|')
     public void CheckArrayRotateOnSpace(final String arrStr, final int k, final String expectedStr){
-        ArrayList<Integer> arr = parseArray(arrStr);
-        ArrayList<Integer> expected = parseArray(expectedStr);
+        List<Integer> arr = parseArray(arrStr);
+        List<Integer> expected = parseArray(expectedStr);
 
         var actual = RotateArray.rotateArrayOnSpace(arr, k);
 
@@ -36,8 +36,8 @@ public class RotateArrayTest extends BaseTest {
         "-1, -100, 3, 99 | 2 | 3, 99, -1, -100",
     }, delimiter = '|')
     public void CheckArrayRotateO1Space(final String arrStr, final int k, final String expectedStr){
-        ArrayList<Integer> arr = parseArray(arrStr);
-        ArrayList<Integer> expected = parseArray(expectedStr);
+        List<Integer> arr = parseArray(arrStr);
+        List<Integer> expected = parseArray(expectedStr);
 
         RotateArray.rotateArrayO1Space(arr, k);
 

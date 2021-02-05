@@ -1,8 +1,8 @@
 package com.github.shuuvava.arrays;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,7 +28,7 @@ public class ContainsDuplicate {
    * @param <T> any type
    * @return True if array has duplicate
    */
-  public static <T> Boolean ArrayContainsDuplicate(ArrayList<T> nums) {
+  public static <T> Boolean ArrayContainsDuplicate(List<T> nums) {
     Set<T> map = new HashSet<>();
     for (T item : nums) {
       if (map.contains(item)) {
@@ -49,7 +49,7 @@ public class ContainsDuplicate {
    * @return True if array has duplicate
    */
   public static <T extends Comparable<T>> Boolean ArrayContainsDuplicateOptimized(
-    ArrayList<T> nums) {
+    List<T> nums) {
     if (nums.size() < 2) {
       return false;
     }

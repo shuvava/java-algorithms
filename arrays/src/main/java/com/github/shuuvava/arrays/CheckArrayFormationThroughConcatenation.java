@@ -1,7 +1,7 @@
 package com.github.shuuvava.arrays;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +29,7 @@ public class CheckArrayFormationThroughConcatenation {
     return s.getOrDefault(item, -1);
   }
 
-  public static boolean Test(ArrayList<Integer> arr, ArrayList<ArrayList<Integer>> pieces) {
+  public static boolean Test(List<Integer> arr, List<List<Integer>> pieces) {
     var s = new HashMap<Integer, Integer>();
     for (Integer value : arr) {
       for (int iPieces = 0; iPieces < pieces.size(); iPieces++) {
@@ -56,7 +56,7 @@ public class CheckArrayFormationThroughConcatenation {
           inx = 1;
         }
       } else {
-        if (integer != pieces.get(iPiece).get(inx)) {
+        if (!integer.equals(pieces.get(iPiece).get(inx))) {
           return false;
         }
         inx += 1;

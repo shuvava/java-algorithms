@@ -3,7 +3,7 @@ package com.github.shuuvava.arrays;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import com.github.shuvava.testcommon.BaseTest;
-import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -18,8 +18,8 @@ public class PlusOneArrayTest extends BaseTest {
     "0 | 1",
   }, delimiter = '|')
   public void plusOne(final String strDigits, final String strExpected) {
-    ArrayList<Integer> digits = parseArray(strDigits);
-    ArrayList<Integer> expected = parseArray(strExpected);
+    List<Integer> digits = parseArray(strDigits);
+    List<Integer> expected = parseArray(strExpected);
 
     var actual = PlusOneArray.plusOne(digits);
 

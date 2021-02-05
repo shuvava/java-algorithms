@@ -2,6 +2,7 @@ package com.github.shuuvava.arrays;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Given two arrays, write a function to compute their intersection.
@@ -22,8 +23,9 @@ import java.util.Collections;
  */
 public class IntersectionOfArrays {
 
-  public static <T extends Comparable<T>> ArrayList<T> GetIntersection(ArrayList<T> nums1,
-    ArrayList<T> nums2) {
+  public static <T extends Comparable<T>> List<T> GetIntersection(
+    List<T> nums1,
+    List<T> nums2) {
     Collections.sort(nums1);
     Collections.sort(nums2);
 
