@@ -21,6 +21,7 @@
     <module>problems</module>
     <module>DynamicProgramming</module>
     <module>arrays</module>
+    <module>strings</module>
     <module>testcommon</module>
   </modules>
 
