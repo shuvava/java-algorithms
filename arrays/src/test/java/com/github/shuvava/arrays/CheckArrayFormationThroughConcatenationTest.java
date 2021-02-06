@@ -1,4 +1,4 @@
-package com.github.shuuvava.arrays;
+package com.github.shuvava.arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

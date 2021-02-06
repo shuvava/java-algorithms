@@ -1,4 +1,4 @@
-package com.github.shuuvava.arrays;
+package com.github.shuvava.arrays;
 
 import java.util.Collections;
 import java.util.HashSet;
