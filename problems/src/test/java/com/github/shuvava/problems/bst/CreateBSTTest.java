@@ -8,21 +8,18 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class RightSideViewTest extends BaseTest {
-
-  @DisplayName("bst rightSideView")
+public class CreateBSTTest extends BaseTest {
+  @DisplayName("bst creation")
   @ParameterizedTest(name = "bst [{0}] should return {1}")
   @CsvSource(value = {
-    "1, 2, 3, null, 5, null, 4 | 1, 3, 4",
-    "1, 2, 3, null, 4 | 1, 3, 4",
+    "1, 2, 3, null, 5, null, 4",
+    "1, 2, 3, null, 4",
   }, delimiter = '|')
-  public void rightSideView(final String input, final String expectedStr) {
-    // arrange
+  public void createBST(final String input) {
     var arr = TestHelper.parseToList(input);
-    var expected = parseArray(expectedStr);
+    var expected = TestHelper.parseToList(input);
     var root = CreateBST.createBST(arr);
-    //act
-    var actual = RightSideView.rightSideView(root);
+    var actual = CreateBST.convertToList(root);
 
     assertArrayEquals(expected.toArray(), actual.toArray());
   }
