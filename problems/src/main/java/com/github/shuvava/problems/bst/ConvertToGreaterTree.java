@@ -64,7 +64,7 @@ public class ConvertToGreaterTree {
     }
 
     var sum = 0;
-    Collections.sort(heap, Collections.reverseOrder());
+    heap.sort(Collections.reverseOrder());
     for (var val : heap) {
       sum += val;
       heapSum.add(sum);
