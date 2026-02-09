@@ -3,6 +3,7 @@ package com.github.shuuvava.arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * You are given an array of distinct integers arr and an array of integer arrays pieces, where the
@@ -56,7 +57,7 @@ public class CheckArrayFormationThroughConcatenation {
           inx = 1;
         }
       } else {
-        if (integer != pieces.get(iPiece).get(inx)) {
+        if (!Objects.equals(integer, pieces.get(iPiece).get(inx))) {
           return false;
         }
         inx += 1;

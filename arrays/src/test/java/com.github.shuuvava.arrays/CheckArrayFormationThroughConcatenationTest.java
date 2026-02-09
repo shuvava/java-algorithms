@@ -12,7 +12,7 @@ public class CheckArrayFormationThroughConcatenationTest {
 
   private static ArrayList<ArrayList<Integer>> parseToArrayOfArray(String input) {
     if (input == null) {
-      return new ArrayList<ArrayList<Integer>>();
+      return new ArrayList<>();
     }
     return Stream.of(input.split(";"))
       .map(String::trim)
