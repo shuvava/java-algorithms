@@ -11,7 +11,7 @@ public class BstNodeUpdates {
         parent.setRight(node);
         return true;
       }
-      return insert(right, node );
+      return insert(right, node);
     }
     var left = parent.getLeft();
     if (left == null) {
@@ -22,7 +22,7 @@ public class BstNodeUpdates {
   }
 
   static <T extends Comparable<T>> Boolean delete(BstNode<T> node) {
-    if (node == null ) return false;
+    if (node == null) return false;
     var parent = node.getParent();
     var left = node.getLeft();
     var right = node.getRight();

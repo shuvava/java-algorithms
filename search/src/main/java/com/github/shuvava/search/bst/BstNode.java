@@ -9,8 +9,8 @@ import lombok.Setter;
  *
  * <p>:Properties:
  *
- * <p>Each node x in the binary tree has a key key(x). Nodes other than the root have a parent p(x).
- * Nodes may have a left child lef t(x) and/or a right child right(x). These are pointers unlike in
+ * <p>Each node x in the binary tree has a key(x). Nodes other than the root have a parent p(x).
+ * Nodes may have a left child left(x) and/or a right child right(x). These are pointers unlike in
  * a heap.
  * The invariant is:
  * for any node x,
