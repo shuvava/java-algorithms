@@ -64,7 +64,7 @@ public class TestHelper {
     Collections.sort(items, Comparator
         .comparingInt(a -> {
           var a1 = (List<Integer>) a;
-          return a1.size() > 0 ? a1.get(0) : Integer.MIN_VALUE;
+          return a1.size() > 0 ? a1.getFirst() : Integer.MIN_VALUE;
         })
         .thenComparing(a -> {
           var a1 = (List<Integer>) a;

@@ -28,7 +28,7 @@ public class MergeIntervals {
     for (int i = 1; i < intervals.length; i++) {
       int il = intervals[i][0];
       int ih = intervals[i][1];
-      int[] el = res.get(res.size() - 1);
+      int[] el = res.getLast();
       int h = el[1];
       if (il <= h) {
         h = Integer.max(ih, h);

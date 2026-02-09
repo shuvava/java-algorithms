@@ -33,13 +33,13 @@ public class CheckArrayFormationThroughConcatenation {
     var s = new HashMap<Integer, Integer>();
     for (Integer value : arr) {
       for (int iPieces = 0; iPieces < pieces.size(); iPieces++) {
-        if (pieces.get(iPieces).get(0).equals(value)) {
+        if (pieces.get(iPieces).getFirst().equals(value)) {
           s.put(value, iPieces);
         }
       }
     }
 
-    var iPiece = FindPiece(s, arr.get(0));
+    var iPiece = FindPiece(s, arr.getFirst());
     var iLen = -1;
     var inx = 0;
     if (iPiece > -1) {

@@ -21,10 +21,10 @@ public class CreateBST {
   }
 
   public TreeNode createBST(List<Integer> arr) {
-    if (arr == null || arr.size() == 0 || arr.get(0) == null) {
+    if (arr == null || arr.size() == 0 || arr.getFirst() == null) {
       return null;
     }
-    var root = new TreeNode(arr.get(0));
+    var root = new TreeNode(arr.getFirst());
     Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
     stack.push(Pair.of(root, 0));
     while (!stack.isEmpty()) {
