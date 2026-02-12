@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * links: * https://www.baeldung.com/java-array-permutations * https://en.wikipedia.org/wiki/Heap%27s_algorithm
+ * links:
+ * <a href="https://www.baeldung.com/java-array-permutations">java-array-permutations</a>
+ * <a href="https://en.wikipedia.org/wiki/Heap%27s_algorithm">.Heap's_algorithm</a>
  */
 public class ArrayPermutation {
 
